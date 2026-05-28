@@ -1,0 +1,42 @@
+{
+  "max_average_sentence_length": 20,
+  "max_hedge_ratio": 0.002,
+  "min_hedges_for_violation": 2,
+  "min_word_count_for_hedge_check": 100,
+  "hedge_words": [
+    "might",
+    "could",
+    "perhaps",
+    "maybe",
+    "possibly",
+    "arguably",
+    "somewhat",
+    "generally",
+    "often",
+    "sometimes",
+    "kind of",
+    "sort of",
+    "seem",
+    "seems",
+    "seemed"
+  ],
+  "require_single_sentence_paragraph": true,
+  "flag_sentence_uniformity": true,
+  "sentence_uniformity_max_diff": 1,
+  "sentence_uniformity_min_length": 2,
+  "sentence_uniformity_max_length": 18,
+  "flag_rule_of_three": true,
+  "flag_comma_triplet": true,
+  "flag_cross_paragraph_fragments": true,
+  "fragment_chain_max_words": 7,
+  "flag_bold_restatement": true,
+  "flag_missing_contractions": true,
+  "flag_emdash": true,
+  "flag_unsourced_stats": true,
+  "banned_stat_citations": [
+    "Stack Overflow Developer Survey",
+    "Pew Research",
+    "McKinsey (says|found|reports|estimates)",
+    "HCLTech (says|found|reports)"
+  ]
+}

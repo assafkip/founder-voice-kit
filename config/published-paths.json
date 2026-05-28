@@ -1,0 +1,34 @@
+{
+  "published_paths": [
+    "**/articles/**/*.md",
+    "**/blog/**/*.md",
+    "**/posts/**/*.md",
+    "**/newsletter/**/*.md",
+    "**/launch/**/*.md",
+    "**/social/**/*.md",
+    "**/marketing/**/*.md",
+    "**/outreach/**/*.md",
+    "**/linkedin*.md",
+    "**/twitter*.md",
+    "**/x-*.md",
+    "**/medium*.md",
+    "**/substack*.md",
+    "**/email-*.md",
+    "**/email_*.md",
+    "**/dm-*.md",
+    "**/dm_*.md",
+    "**/reply-*.md",
+    "**/reply_*.md",
+    "**/*-draft-*.md",
+    "**/*_draft_*.md",
+    "**/*-post-*.md",
+    "**/*_post_*.md",
+    "**/*-reply-*.md"
+  ],
+  "skip_paths": [
+    "**/internal/**",
+    "**/private/**",
+    "**/.archive/**"
+  ],
+  "skip_marker": "voice-lint-skip"
+}

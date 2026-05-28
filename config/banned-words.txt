@@ -1,0 +1,59 @@
+# Banned word list. One word per line. # starts a comment.
+# Matched case-insensitively as a whole word.
+# Override locally by creating banned-words.local.txt (merged on top).
+
+# AI-fingerprint vocabulary
+leverage
+robust
+transformative
+innovative
+cutting-edge
+groundbreaking
+delve
+tapestry
+synergy
+paradigm
+cornerstone
+linchpin
+testament
+vital
+pivotal
+crucial
+meticulous
+nuanced
+vibrant
+enduring
+unparalleled
+unwavering
+intricate
+comprehensive
+
+# AI verbs
+utilize
+optimize
+foster
+underscore
+embark
+garner
+bolster
+showcase
+empower
+unlock
+revolutionize
+streamline
+spearhead
+
+# AI adverbs
+meticulously
+effectively
+efficiently
+strategically
+consistently
+seamlessly
+furthermore
+moreover
+additionally
+
+# AI emotional vocabulary
+thrilled
+humbled

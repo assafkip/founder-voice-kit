@@ -1,0 +1,33 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+dist/
+build/
+*.egg-info/
+
+# User-specific voice files. Templates ship, filled versions do not.
+skills/founder-voice/references/voice-dna.md
+skills/founder-voice/references/writing-samples.md
+!skills/founder-voice/references/voice-dna.template.md
+!skills/founder-voice/references/writing-samples.template.md
+
+# Local config overrides
+config/*.local.txt
+config/*.local.json
+
+# Receipts / before-after dumps from real user content
+receipts/private/

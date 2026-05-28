@@ -1,0 +1,38 @@
+# Banned phrase list. One phrase per line. # starts a comment.
+# Matched case-insensitively as substring.
+# Override locally by creating banned-phrases.local.txt (merged on top).
+
+# AI openers
+in today's
+let's dive in
+let's explore
+let's unpack
+it's important to note
+it's crucial to note
+generally speaking
+
+# AI closers
+in conclusion
+to sum up
+that said
+with that in mind
+this is where
+
+# AI marketing
+game-changer
+game changer
+
+# AI conversational filler
+let's face it
+great question
+hope this helps
+
+# Outreach corpse phrases
+circling back
+just checking in
+following up on my last
+
+# LinkedIn announcement clichés
+excited to announce
+excited to share
+proud to say
