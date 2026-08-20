@@ -1,0 +1,17 @@
+{
+  "_what": "Is the draft SHAPED like you. The other half of the voice question: a voice checker asks whether it SOUNDS like you and never asks what shape the thing is.",
+  "_why": "Found the hard way. One post ran twelve drafts and four rejections of the opening line before anyone measured that the author's own median opener is 9 words and every draft opened with 20 to 30. Nothing could see it, so nobody could say it.",
+  "_how": "Point `corpus_glob` at your own published posts. The bands are DERIVED from them at run time, never shipped as numbers: a hardcoded median is a second source of truth that goes stale the day you write another post.",
+  "enabled": false,
+  "corpus_glob": "",
+  "min_posts_for_a_band": 8,
+  "check_total_length": true,
+  "check_hook_length": true,
+  "check_sentences_per_paragraph": true,
+  "_hook_definition": "Words in the first sentence OR the first line, whichever ends first. A line break ends the hook even mid-sentence, because that is what a reader sees before deciding to keep going.",
+  "_platform_overrides": {
+    "_what": "Where a platform's mechanics should beat your own habit. Empty by default: your corpus wins unless you deliberately say otherwise.",
+    "_example": "A platform that pays for reading time rather than for likes rewards a post long enough to be worth expanding, even if your own habit is shorter. That is a decision to record here, per channel, with the reason.",
+    "channels": {}
+  }
+}

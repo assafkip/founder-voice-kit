@@ -126,11 +126,13 @@ def load_config():
     words = merge_text_overlay(load_text_list("banned-words.txt"), "banned-words.local.txt")
     phrases = merge_text_overlay(load_text_list("banned-phrases.txt"), "banned-phrases.local.txt")
     structure = merge_json_overlay(load_json("structure-rules.json"), "structure-rules.local.json")
+    slop_shapes = merge_json_overlay(load_json("slop-shapes.json"), "slop-shapes.local.json")
     paths = merge_json_overlay(load_json("published-paths.json"), "published-paths.local.json")
     return {
         "banned_words": set(words),
         "banned_phrases": phrases,
         "structure": structure,
+        "slop_shapes": slop_shapes,
         "paths": paths,
     }
 
@@ -170,6 +172,37 @@ def first_word(sentence):
 
 def word_count(sentence):
     return len(re.findall(r"\b[\w'-]+\b", sentence))
+
+
+def check_slop_shapes(text, config):
+    """Templated shapes that cost reach. Each violation carries its replacement.
+
+    Config-driven so a user whose own writing uses one of these can disable it. That
+    escape hatch is not politeness: a list-based gate that catches its own author is
+    the classic failure of this whole category, and the shipped defaults were only
+    made blocking after being swept against a real 103-post corpus with zero hits.
+    Run scripts/check-slop-shapes-against-corpus.py before trusting them on yours.
+    """
+    shapes_cfg = config.get("slop_shapes") or {}
+    if not shapes_cfg.get("enabled", False):
+        return []
+    violations = []
+    for shape in shapes_cfg.get("shapes", []):
+        try:
+            pattern = re.compile(shape["pattern"])
+        except (KeyError, re.error):
+            # A malformed user pattern degrades to "this rule is off", never to a
+            # crash: a lint that dies on bad config blocks every write in the repo.
+            continue
+        found = pattern.search(text)
+        if found:
+            violations.append({
+                "rule": shape.get("rule", "slop-shape"),
+                "line": text[:found.start()].count(chr(10)) + 1,
+                "detail": f"templated shape that costs reach: {found.group().strip()!r}. "
+                          f"Write {shape.get('instead', 'it plainly instead')}",
+            })
+    return violations
 
 
 def check_banned_words(text, config):
@@ -417,6 +450,7 @@ def lint_file(file_path):
         return []
     all_violations = []
     all_violations.extend(check_emdash(text, config))
+    all_violations.extend(check_slop_shapes(text, config))
     all_violations.extend(check_banned_words(text, config))
     all_violations.extend(check_banned_phrases(text, config))
     all_violations.extend(check_stats(text, config))
