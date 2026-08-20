@@ -1,0 +1,32 @@
+{
+  "_source": "Four templated shapes with measured within-author reach penalties on LinkedIn, 2026. Each carries the positive replacement, because a prohibition without an alternative just moves the problem.",
+  "_why_blocking": "These are not stylistic preferences. They are shapes so common in generated text that both ranking models and human readers skip them. Before enabling this in your own setup, run scripts/check-slop-shapes-against-corpus.py over YOUR writing samples: if a pattern hits your real work, that pattern is your voice and you should disable it rather than let it silence you.",
+  "enabled": true,
+  "shapes": [
+    {
+      "rule": "slop-contrast-bridge",
+      "pattern": "(?i)\\b(that|this|it)\\s*(?:is|'s)\\s+not\\b[^.!?\\n]{0,80}[.!?]\\s+(?:it|that|this)\\s*(?:is|'s)\\s+\\w+",
+      "example": "That is not a branding question. It is a system question.",
+      "instead": "a definitive statement. Say what it IS, without first saying what it is not."
+    },
+    {
+      "rule": "slop-dramatic-pause",
+      "pattern": "(?i)[.!?]\\s+(the result\\?|the problem\\?|the catch\\?|why\\?|the kicker\\?)",
+      "example": "Records were missing. The result? Deals slipped through.",
+      "instead": "causal linking. Join the cause to the effect in one sentence instead of staging a reveal."
+    },
+    {
+      "rule": "slop-false-secret",
+      "pattern": "(?i)\\b(here'?s what nobody|what nobody tells you|nobody talks about|the secret (?:nobody|no one)|what they don'?t tell you)\\b",
+      "example": "Here is what nobody tells you about data engineering.",
+      "instead": "a data-anchored premise. Open on the thing you measured, not on the claim that it is hidden."
+    },
+    {
+      "rule": "slop-generic-advice",
+      "pattern": "(?i)\\bstop \\w+ing\\b[^.!?\\n]{0,60}[.!?]\\s*start \\w+ing\\b",
+      "example": "Stop chasing likes. Start solving problems.",
+      "instead": "a direct operational directive. Name the action and the object, once."
+    }
+  ],
+  "_the_through_line": "Every replacement deletes a rhetorical move and puts a mechanism or a number in its place. The banned shapes are all ways of manufacturing drama around a claim; the replacements state the claim and let it carry itself."
+}

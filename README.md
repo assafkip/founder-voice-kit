@@ -66,3 +66,54 @@ I built this for myself first, then shipped the generic version. If you want one
 ## License
 
 MIT for everything in this repo. See `LICENSE`.
+
+## Shape, not just sound (added 2026-08)
+
+A voice checker asks whether a draft SOUNDS like you. Neither this kit nor any
+other asked what SHAPE it is, and that gap is expensive in a specific way: one post
+here ran twelve drafts and four rejections of its opening line before anyone
+measured that the author's own median opener is nine words while every draft opened
+with twenty to thirty. Nothing could see it, so nobody could say it.
+
+Two additions.
+
+### `config/slop-shapes.json`
+
+Four templated sentence shapes with measured reach penalties. They are blocked by
+default and each violation names its replacement, because a prohibition with no
+alternative just moves the problem:
+
+| shape | instead |
+|---|---|
+| "That is not a branding question. It is a system question." | a definitive statement |
+| "Records were missing. The result? Deals slipped through." | causal linking |
+| "Here is what nobody tells you about X." | a data-anchored premise |
+| "Stop chasing likes. Start solving problems." | a direct operational directive |
+
+The through-line: every replacement deletes a rhetorical move and puts a mechanism
+or a number in its place. The banned shapes are all ways of manufacturing drama
+around a claim.
+
+**Sweep them over your own writing before you trust them:**
+
+```
+python3 scripts/check-slop-shapes-against-corpus.py path/to/your-posts/
+```
+
+A blocking word-pattern that matches its own author is the classic failure of this
+category of tool. The shipped defaults scored zero hits across a real 103-post
+corpus before they were made blocking, and a looser variant of the contrast-bridge
+pattern scored one hit on that same corpus and was rejected for it. If a pattern
+hits your work, it is your voice: turn it off in `config/slop-shapes.local.json`.
+
+### `config/post-form.json`
+
+Off by default. Point `corpus_glob` at your own published posts and it derives your
+bands for total length, opener length, and sentences per paragraph, then reports a
+draft against them. The numbers are derived at run time and never shipped: a
+hardcoded median is a second source of truth that goes stale the day you write
+another post.
+
+`_platform_overrides` is where you record a deliberate departure from your own
+habit, per channel, with the reason. Empty by default, because your corpus wins
+unless you say otherwise.
